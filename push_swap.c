@@ -97,14 +97,12 @@ void	rra(t_list **list)
 {
 	t_list	*new_head;
 	t_list	*temp;
-	t_list	*second;
 
 	temp = *list;
 	while (temp -> next -> next)
 		temp = temp -> next;
 	new_head = temp -> next;
-	second = *list;
-	new_head -> next = second;
+	new_head -> next = *list;
 	temp -> next = NULL;
 	*list = new_head;
 	printf("rra\n");
@@ -113,14 +111,12 @@ void	rrb(t_list **list)
 {
 	t_list	*new_head;
 	t_list	*temp;
-	t_list	*second;
 
 	temp = *list;
 	while (temp -> next -> next)
 		temp = temp -> next;
 	new_head = temp -> next;
-	second = *list;
-	new_head -> next = second;
+	new_head -> next = *list;
 	temp -> next = NULL;
 	*list = new_head;
 	printf("rrb\n");
@@ -152,8 +148,6 @@ int	main(int argc, char **argv)
 	ft_printlst(&list_a);
 	ft_printlst(&list_b);
 	
-	ra(&list_a);
-	ft_printlst(&list_a);
 	rra(&list_a);
 	ft_printlst(&list_a);
 }
