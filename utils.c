@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdadak <sdadak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 17:09:35 by sdadak            #+#    #+#             */
-/*   Updated: 2025/09/06 17:33:47 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/10/05 18:31:38 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	r;
-	
+
 	i = 0;
 	if (nptr[i] == '\0')
 		exit (1);

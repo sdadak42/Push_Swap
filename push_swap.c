@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdadak <sdadak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 19:21:31 by sdadak            #+#    #+#             */
-/*   Updated: 2025/09/06 17:42:01 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/10/05 18:18:47 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,96 +31,7 @@ t_list	*ft_toint_and_fill(char **arr)
 	}
 	return (list);
 }
-void	sa(t_list **list)
-{
-	t_list	*temp;
 
-	temp = (*list) -> next ;
-	(*list) -> next = temp -> next;
-	temp -> next = *list;
-	*list = temp;
-	printf("sa\n");
-}
-void	sb(t_list **list)
-{
-	t_list	*temp;
-
-	temp = (*list) -> next ;
-	(*list) -> next = temp -> next;
-	temp -> next = *list;
-	*list = temp;
-	printf("sb\n");
-}
-
-void	pa(t_list **list_a, t_list **list_b)
-{
-	t_list	*temp;
-
-	temp = *list_b;
-	*list_b = temp -> next;
-	temp -> next = *list_a;
-	*list_a = temp;
-	printf("pa\n");
-}
-void	pb(t_list **list_a, t_list **list_b)
-{
-	t_list	*temp;
-
-	temp = *list_a;
-	*list_a = temp -> next;
-	temp -> next = *list_b;
-	*list_b = temp;
-	printf("pb\n");
-}
-void	ra(t_list **list)
-{
-	t_list	*temp;
-
-	temp = *list;
-	ft_lstlast(*list) -> next = temp;
-	*list = temp -> next;
-	temp -> next = NULL;
-	printf("ra\n");
-}
-void	rb(t_list **list)
-{
-	t_list	*temp;
-
-	temp = *list;
-	ft_lstlast(*list) -> next = temp;
-	*list = temp -> next;
-	temp -> next = NULL;
-	printf("rb\n");
-}
-
-void	rra(t_list **list)
-{
-	t_list	*new_head;
-	t_list	*temp;
-
-	temp = *list;
-	while (temp -> next -> next)
-		temp = temp -> next;
-	new_head = temp -> next;
-	new_head -> next = *list;
-	temp -> next = NULL;
-	*list = new_head;
-	printf("rra\n");
-}
-void	rrb(t_list **list)
-{
-	t_list	*new_head;
-	t_list	*temp;
-
-	temp = *list;
-	while (temp -> next -> next)
-		temp = temp -> next;
-	new_head = temp -> next;
-	new_head -> next = *list;
-	temp -> next = NULL;
-	*list = new_head;
-	printf("rrb\n");
-}
 void	ft_printlst(t_list **list)
 {
 	t_list	*temp;
