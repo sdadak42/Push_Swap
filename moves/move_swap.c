@@ -36,7 +36,7 @@ void	sb(t_list **list)
 
 void	ss(t_list **list_a, t_list **list_b)
 {
-	sa(*list_a);
-	sb(*list_b);
+	sa(list_a);
+	sb(list_b);
 	write(1, "ss\n", 3);
 }

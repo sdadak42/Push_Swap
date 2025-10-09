@@ -10,33 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
-void    sort_three(t_list **list)
+void    ft_sort_three(t_list **list)
 {
     int x;
     int y;
     int z;
 
-    x = *list;
-    y = (*list)-> next;
-    z = (*list)-> next -> next;
+    x = (*list)-> number;
+    y = (*list)-> next -> number;
+    z = (*list)-> next -> next -> number;
     if (x < y && y < x)
         return ;
     else if (x < y && y > z && x < z)
     {
-        rra(*list);
-        sa(*list);
+        rra(list);
+        sa(list);
     }
     else if (x > y && y < z && x < z)
-        sa(*list);
+        sa(list);
     else if (x < y && y > z && x > z)
-        rra(*list);
+        rra(list);
     else if (x > y && y < z && x > z)
-        ra(*list);
+        ra(list);
     else if (x > y && y > z)
     {
-        sa(*list);
-        rra(*list);
+        sa(list);
+        rra(list);
     }
 }

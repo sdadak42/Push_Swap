@@ -15,10 +15,11 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
-	int				value;
+	int				number;
 	struct s_list	*next;
 	int				index;
 }	t_list;
@@ -35,13 +36,14 @@ void	rra(t_list **list);
 void	rrb(t_list **list);
 void	rrr(t_list **list_a, t_list **list_b);
 
-void    sort_three(t_list **list);
+void    ft_sort_three(t_list **list);
 
 int		ft_atoi(const char *nptr);
-t_list	*ft_lstnew(int value, int index);
+char	**ft_split(char const *s, char c);
+
+t_list	*ft_lstnew(int number, int index);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
-char	**ft_split(char const *s, char c);
 
 #endif

@@ -36,7 +36,7 @@ void	rb(t_list **list)
 
 void	rr(t_list **list_a, t_list **list_b)
 {
-	ra(*list_a);
-	rb(*list_b);
+	ra(list_a);
+	rb(list_b);
 	write(1, "rr\n", 3);
 }

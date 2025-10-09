@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdadak <sdadak@student.42istanbul.com      +#+  +:+       +#+        */
+/*   By: sdadak <sdadak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 18:34:09 by sdadak            #+#    #+#             */
-/*   Updated: 2025/10/05 18:34:13 by sdadak           ###   ########.fr       */
+/*   Created: 2025/10/09 21:34:49 by sdadak            #+#    #+#             */
+/*   Updated: 2025/10/09 21:34:49 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	slen;
@@ -32,7 +20,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
+	slen = 0;
+	while (s[slen])
+		slen++;
 	if (start > slen)
 		len = 0;
 	if (len > slen - start)

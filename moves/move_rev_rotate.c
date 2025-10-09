@@ -44,7 +44,7 @@ void	rrb(t_list **list)
 
 void	rrr(t_list **list_a, t_list **list_b)
 {
-	rra(*list_a);
-	rrb(*list_b);
+	rra(list_a);
+	rrb(list_b);
 	write(1, "rrr\n", 4);
 }

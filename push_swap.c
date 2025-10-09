@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-t_list	*ft_toint_and_fill(char **arr)
+static t_list	*ft_toint_and_fill(char **arr)
 {
 	t_list	*list = NULL;
 	t_list	*new;
@@ -39,7 +39,7 @@ void	ft_printlst(t_list **list)
 	temp = *list;
 	while (temp)
 	{
-		printf("%d -> %d\n", temp -> value, temp -> index);
+		printf("%d -> %d\n", temp -> number, temp -> index);
 		temp = temp -> next;
 	}
 }
@@ -56,9 +56,6 @@ int	main(int argc, char **argv)
 	else
 		argv++;
 	list_a = ft_toint_and_fill(argv);
-	ft_printlst(&list_a);
-	ft_printlst(&list_b);
-	
-	rra(&list_a);
+	ft_sort_three(&list_a);
 	ft_printlst(&list_a);
 }
