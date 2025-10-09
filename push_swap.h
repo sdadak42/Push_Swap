@@ -6,7 +6,7 @@
 /*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:34:41 by sdadak            #+#    #+#             */
-/*   Updated: 2025/10/05 18:33:38 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/10/09 18:13:43 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	rr(t_list **list_a, t_list **list_b);
 void	rra(t_list **list);
 void	rrb(t_list **list);
 void	rrr(t_list **list_a, t_list **list_b);
+
+void    sort_three(t_list **list);
 
 int		ft_atoi(const char *nptr);
 t_list	*ft_lstnew(int value, int index);
