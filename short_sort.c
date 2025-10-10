@@ -40,3 +40,18 @@ void    ft_sort_three(t_list **list)
         rra(list);
     }
 }
+void    ft_sort_two(t_list **list, int k)
+{
+    int x;
+    int y;
+
+    x = (*list)-> number;
+    y = (*list)-> next -> number;
+    if (x > y)
+    {
+        if (k == 'a')
+            sa(list);
+        else if (k == 'b')
+            sb(list);
+    }
+}

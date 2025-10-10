@@ -37,6 +37,7 @@ void	rrb(t_list **list);
 void	rrr(t_list **list_a, t_list **list_b);
 
 void    ft_sort_three(t_list **list);
+void    ft_sort_two(t_list **list, int k);
 
 int		ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);

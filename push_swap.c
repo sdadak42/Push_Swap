@@ -48,14 +48,16 @@ int	main(int argc, char **argv)
 {
 	t_list	*list_a;
 	t_list	*list_b;
-	
+
 	(void)list_b;
 	list_b = NULL;
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
+	else if (argc == 1)
+		return (0);
 	else
 		argv++;
 	list_a = ft_toint_and_fill(argv);
-	ft_sort_three(&list_a);
+	ft_sort_two(&list_a, 'a');
 	ft_printlst(&list_a);
 }
