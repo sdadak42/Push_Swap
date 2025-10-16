@@ -13,23 +13,32 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-static t_list	*ft_toint_and_fill(char **arr)
+static void	ft_toint_and_fill(char **argv, t_list **a)
 {
-	t_list	*list = NULL;
 	t_list	*new;
+	char	**temp;
+	int	index;
 	int	i;
 	int	j;
 
-	j = 0;
-	i = 0;
-	while (arr[j])
+	j = 1;
+	index = 0;
+	while (argv[j])
 	{
-		new = ft_lstnew(ft_atoi(arr[j]), i);
-		ft_lstadd_back(&list, new);
-		j++;
-		i++;
+		i = 0;
+		temp = ft_split(argv[j++], ' ');
+		if (temp[i] == NULL)
+			ft_free_and_exit(a, temp);
+		while (temp[i])
+		{
+			new = ft_lstnew(ft_atoi(temp[i++], a, temp), index++);
+			ft_lstadd_back(a, new);
+		}
+		i = 0;
+		while (temp[i])
+			free(temp[i++]);
+		free(temp);
 	}
-	return (list);
 }
 
 void	ft_printlst(t_list **list)
@@ -44,20 +53,22 @@ void	ft_printlst(t_list **list)
 	}
 }
 
+static void	push_swap(char **argv)
+{
+	t_list	*a;
+
+	a = NULL;
+	ft_toint_and_fill(argv, &a);
+	ft_is_duplicates(&a);
+	ft_is_sorted(&a);
+	ft_is_short_sort(&a);
+
+	ft_list_free(&a);
+}
 int	main(int argc, char **argv)
 {
-	t_list	*list_a;
-	t_list	*list_b;
-
-	(void)list_b;
-	list_b = NULL;
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	else if (argc == 1)
-		return (0);
+	if (argc > 1)
+		push_swap(argv);
 	else
-		argv++;
-	list_a = ft_toint_and_fill(argv);
-	ft_sort_two(&list_a, 'a');
-	ft_printlst(&list_a);
+		return (0);
 }

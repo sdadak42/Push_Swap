@@ -12,7 +12,9 @@ SRCS =	push_swap.c \
 		utils/split.c \
 		utils/utils_list.c \
 		utils/utils.c \
-		short_sort.c
+		short_sort.c \
+		free_and_exit.c \
+		check_list.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -29,7 +29,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;
-	if (!*lst)
+	if (!(*lst))
 	{
 		*lst = new;
 	}
@@ -39,11 +39,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = ft_lstsize(lst);
-	while (i-- > 1)
-		lst = lst -> next;
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
 	return (lst);
 }
 

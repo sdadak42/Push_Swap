@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void    ft_sort_three(t_list **list)
+static void    ft_sort_three(t_list **list)
 {
     int x;
     int y;
@@ -53,5 +53,23 @@ void    ft_sort_two(t_list **list, int k)
             sa(list);
         else if (k == 'b')
             sb(list);
+    }
+}
+void    ft_is_short_sort(t_list **list)
+{
+    int len;
+
+    len = ft_lstsize(*list);
+    if (len == 2)
+    {
+        ft_sort_two(list, 'a');
+        ft_list_free(list);
+        exit(1);
+    }
+    else if (len == 3)
+    {
+        ft_sort_three(list);
+        ft_list_free(list);
+        exit(1);
     }
 }

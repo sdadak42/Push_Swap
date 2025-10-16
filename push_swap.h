@@ -36,15 +36,23 @@ void	rra(t_list **list);
 void	rrb(t_list **list);
 void	rrr(t_list **list_a, t_list **list_b);
 
-void    ft_sort_three(t_list **list);
 void    ft_sort_two(t_list **list, int k);
 
-int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr, t_list **list,  char **temp);
 char	**ft_split(char const *s, char c);
 
 t_list	*ft_lstnew(int number, int index);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
+
+void    ft_free_and_exit(t_list **list, char **arr);
+void    ft_list_free_exit(t_list **list);
+void    ft_list_free(t_list **list);
+
+void    ft_is_duplicates(t_list **list);
+void    ft_is_sorted(t_list **list);
+void    ft_is_short_sort(t_list **list);
+
 
 #endif
