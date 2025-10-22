@@ -44,7 +44,22 @@ void	rrb(t_list **list)
 
 void	rrr(t_list **list_a, t_list **list_b)
 {
-	rra(list_a);
-	rrb(list_b);
+	t_list	*new_head;
+	t_list	*temp;
+
+	temp = *list_a;
+	while (temp -> next -> next)
+		temp = temp -> next;
+	new_head = temp -> next;
+	new_head -> next = *list_a;
+	temp -> next = NULL;
+	*list_a = new_head;
+	temp = *list_b;
+	while (temp -> next -> next)
+		temp = temp -> next;
+	new_head = temp -> next;
+	new_head -> next = *list_b;
+	temp -> next = NULL;
+	*list_b = new_head;
 	write(1, "rrr\n", 4);
 }

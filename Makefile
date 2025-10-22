@@ -2,19 +2,21 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS =	push_swap.c \
-		moves/move_push.c \
-		moves/move_rev_rotate.c \
-		moves/move_rotate.c \
-		moves/move_swap.c \
-		utils/split.c \
-		utils/utils_list.c \
-		utils/utils.c \
+		move_push.c \
+		move_rev_rotate.c \
+		move_rotate.c \
+		move_swap.c \
+		split.c \
+		utils_list.c \
+		utils.c \
+		cost_utils.c \
 		short_sort.c \
 		free_and_exit.c \
 		check_list.c \
+		move.c \
 
 OBJS = $(SRCS:.c=.o)
 

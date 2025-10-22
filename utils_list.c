@@ -6,13 +6,13 @@
 /*   By: sdadak <sdadak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 21:32:17 by sdadak            #+#    #+#             */
-/*   Updated: 2025/10/09 21:32:17 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/10/22 19:22:44 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int number, int index)
+t_list	*ft_lstnew(int number)
 {
 	t_list	*new;
 
@@ -21,7 +21,6 @@ t_list	*ft_lstnew(int number, int index)
 		return (NULL);
 	new -> number = number;
 	new -> next = NULL;
-	new -> index = index;
 	return (new);
 }
 
@@ -57,4 +56,33 @@ int	ft_lstsize(t_list *lst)
 		i++;
 	}
 	return (i);
+}
+
+int	ft_list_max_min(t_list **list, char maxmin)
+{
+	int		value;
+	t_list	*temp;
+
+	temp = *list;
+	if (maxmin == 'x')
+	{
+		value = -2147483648;
+		while (temp)
+		{
+			if (temp -> number > value)
+				value = temp -> number;
+			temp = temp -> next;
+		}
+	}
+	else
+	{
+		value = 2147483647;
+		while (temp)
+		{
+			if (temp -> number < value)
+				value = temp -> number;
+			temp = temp -> next;
+		}
+	}
+	return (value);
 }

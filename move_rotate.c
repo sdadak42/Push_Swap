@@ -36,7 +36,15 @@ void	rb(t_list **list)
 
 void	rr(t_list **list_a, t_list **list_b)
 {
-	ra(list_a);
-	rb(list_b);
+	t_list	*temp;
+
+	temp = *list_a;
+	ft_lstlast(*list_a)-> next = temp;
+	*list_a = temp -> next;
+	temp -> next = NULL;
+	temp = *list_b;
+	ft_lstlast(*list_b)-> next = temp;
+	*list_b = temp -> next;
+	temp -> next = NULL;
 	write(1, "rr\n", 3);
 }

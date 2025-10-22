@@ -6,23 +6,20 @@
 /*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 19:21:31 by sdadak            #+#    #+#             */
-/*   Updated: 2025/10/05 18:18:47 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/10/22 19:30:39 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
 static void	ft_toint_and_fill(char **argv, t_list **a)
 {
 	t_list	*new;
 	char	**temp;
-	int	index;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	j = 1;
-	index = 0;
 	while (argv[j])
 	{
 		i = 0;
@@ -31,7 +28,7 @@ static void	ft_toint_and_fill(char **argv, t_list **a)
 			ft_free_and_exit(a, temp);
 		while (temp[i])
 		{
-			new = ft_lstnew(ft_atoi(temp[i++], a, temp), index++);
+			new = ft_lstnew(ft_atoi(temp[i++], a, temp));
 			ft_lstadd_back(a, new);
 		}
 		i = 0;
@@ -41,30 +38,46 @@ static void	ft_toint_and_fill(char **argv, t_list **a)
 	}
 }
 
-void	ft_printlst(t_list **list)
+void	ft_sort(t_list **a, t_list **b)
 {
-	t_list	*temp;
+	int	min_a;
+	int	cost_a;
+	int	i;
 
-	temp = *list;
-	while (temp)
+	i = 0;
+	pb(a, b);
+	pb(a, b);
+	ft_push_b(a, b);
+	ft_is_short_sort(a);
+	ft_push_a(a, b);
+	min_a = ft_list_max_min(a, 'n');
+	cost_a = cost(min_a, a);
+	if (in_half(min_a, a))
 	{
-		printf("%d -> %d\n", temp -> number, temp -> index);
-		temp = temp -> next;
+		while (i++ < cost_a)
+			ra(a);
 	}
+	else
+		while (i++ < cost_a)
+			rra(a);
 }
 
 static void	push_swap(char **argv)
 {
 	t_list	*a;
+	t_list	*b;
 
 	a = NULL;
+	b = NULL;
 	ft_toint_and_fill(argv, &a);
 	ft_is_duplicates(&a);
 	ft_is_sorted(&a);
 	ft_is_short_sort(&a);
-
-	ft_list_free(&a);
+	ft_is_sorted(&a);
+	ft_sort(&a, &b);
+	ft_is_sorted(&a);
 }
+
 int	main(int argc, char **argv)
 {
 	if (argc > 1)

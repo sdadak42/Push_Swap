@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_move.c                                        :+:      :+:    :+:   */
+/*   move_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 18:00:52 by sdadak            #+#    #+#             */
-/*   Updated: 2025/10/05 18:30:11 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/10/22 20:00:58 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,4 @@ void	sa(t_list **list)
 	temp -> next = *list;
 	*list = temp;
 	write(1, "sa\n", 3);
-}
-
-void	sb(t_list **list)
-{
-	t_list	*temp;
-
-	temp = (*list)-> next ;
-	(*list)-> next = temp -> next;
-	temp -> next = *list;
-	*list = temp;
-	write(1, "sb\n", 3);
-}
-
-void	ss(t_list **list_a, t_list **list_b)
-{
-	sa(list_a);
-	sb(list_b);
-	write(1, "ss\n", 3);
 }

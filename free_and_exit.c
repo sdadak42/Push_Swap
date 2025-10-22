@@ -1,65 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_and_free.c                                    :+:      :+:    :+:   */
+/*   free_and_exit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdadak <sdadak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:34:57 by sdadak            #+#    #+#             */
-/*   Updated: 2025/10/13 12:34:57 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/10/22 19:28:30 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_free_and_exit(t_list **list, char **arr)
+void	ft_free_and_exit(t_list **list, char **arr)
 {
-    t_list  *temp;
-    int i;
+	t_list	*temp;
+	int		i;
 
-    i = 0;
-    if (list != NULL)
-    {
-        while (*list)
-        {
-            temp = *list;
-            *list = (*list) -> next;
-            free(temp);
-        }
-    }
-    while (arr[i])
+	i = 0;
+	if (list != NULL)
+	{
+		while (*list)
+		{
+			temp = *list;
+			*list = (*list)-> next;
+			free(temp);
+		}
+	}
+	while (arr[i])
 		free(arr[i++]);
 	free(arr);
-    write(2, "error\n", 6);
-    exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
-void    ft_list_free_exit(t_list **list)
-{
-    t_list  *temp;
 
-    if (list != NULL)
-    {
-        while (*list)
-        {
-            temp = *list;
-            *list = (*list) -> next;
-            free(temp);
-        }
-    }
-    write(2, "error\n", 6);
-    exit(1);
+void	ft_list_free_exit(t_list **list)
+{
+	t_list	*temp;
+
+	if (list != NULL)
+	{
+		while (*list)
+		{
+			temp = *list;
+			*list = (*list)-> next;
+			free(temp);
+		}
+	}
+	write(2, "Error\n", 6);
+	exit(1);
 }
-void    ft_list_free(t_list **list)
-{
-    t_list  *temp;
 
-    if (list != NULL)
-    {
-        while (*list)
-        {
-            temp = *list;
-            *list = (*list) -> next;
-            free(temp);
-        }
-    }
+void	ft_list_free(t_list **list)
+{
+	t_list	*temp;
+
+	if (list != NULL)
+	{
+		while (*list)
+		{
+			temp = *list;
+			*list = (*list)->next;
+			free(temp);
+		}
+	}
 }
