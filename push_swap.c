@@ -12,33 +12,7 @@
 
 #include "push_swap.h"
 
-static void	ft_toint_and_fill(char **argv, t_list **a)
-{
-	t_list	*new;
-	char	**temp;
-	int		i;
-	int		j;
-
-	j = 1;
-	while (argv[j])
-	{
-		i = 0;
-		temp = ft_split(argv[j++], ' ');
-		if (temp[i] == NULL)
-			ft_free_and_exit(a, temp);
-		while (temp[i])
-		{
-			new = ft_lstnew(ft_atoi(temp[i++], a, temp));
-			ft_lstadd_back(a, new);
-		}
-		i = 0;
-		while (temp[i])
-			free(temp[i++]);
-		free(temp);
-	}
-}
-
-void	ft_sort(t_list **a, t_list **b)
+static void	ft_sort(t_list **a, t_list **b)
 {
 	int	min_a;
 	int	cost_a;
