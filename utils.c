@@ -12,6 +12,32 @@
 
 #include "push_swap.h"
 
+static int	ft_atoi(const char *nptr, t_list **list, char **temp)
+{
+	int		i;
+	int		sign;
+	long	r;
+
+	i = 0;
+	sign = 1;
+	r = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+		if (nptr[i] == '\0')
+			ft_free_and_exit(list, temp);
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+		r = (r * 10) + (nptr[i++] - '0');
+	if (nptr[i] != '\0' || (r * sign) < -2147483648 || (r * sign) > 2147483647)
+		ft_free_and_exit(list, temp);
+	return ((int)(r * sign));
+}
+
 void	ft_toint_and_fill(char **argv, t_list **a)
 {
 	t_list	*new;
@@ -36,30 +62,4 @@ void	ft_toint_and_fill(char **argv, t_list **a)
 			free(temp[i++]);
 		free(temp);
 	}
-}
-
-int	ft_atoi(const char *nptr, t_list **list, char **temp)
-{
-	int		i;
-	int		sign;
-	long	r;
-
-	i = 0;
-	sign = 1;
-	r = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-		if (nptr[i] == '\0')
-			ft_free_and_exit(list, temp);
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		r = (r * 10) + (nptr[i++] - '0');
-	if (nptr[i] != '\0' || (r * sign) < -2147483648 || (r * sign) > 2147483647)
-		ft_free_and_exit(list, temp);
-	return ((int)(r * sign));
 }

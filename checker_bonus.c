@@ -59,13 +59,13 @@ static void	ft_checker(char **moves)
 		ft_list_free(&a);
 		ft_list_free(&b);
 		write(1, "KO\n", 3);
-		exit(1);
+		exit(0);
 	}
 	else if (ft_is_sorted_bonus(&a) == 1)
 	{
 		ft_list_free(&a);
 		write(1, "OK\n", 3);
-		exit(1);
+		exit(0);
 	}
 }
 

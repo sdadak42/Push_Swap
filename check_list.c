@@ -43,5 +43,5 @@ void	ft_is_sorted(t_list **list)
 		temp = temp -> next;
 	}
 	ft_list_free(list);
-	exit(1);
+	exit(0);
 }

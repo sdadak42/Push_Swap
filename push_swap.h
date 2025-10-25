@@ -35,7 +35,6 @@ void	rr(t_list **list_a, t_list **list_b);
 void	rra(t_list **list);
 void	rrb(t_list **list);
 void	rrr(t_list **list_a, t_list **list_b);
-int		ft_atoi(const char *nptr, t_list **list, char **temp);
 char	**ft_split(char const *s, char c);
 t_list	*ft_lstnew(int number);
 void	ft_lstadd_back(t_list **lst, t_list *new);
