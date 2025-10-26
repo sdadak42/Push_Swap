@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	moves_check(char *moves)
 {
@@ -79,4 +79,23 @@ int	ft_is_sorted_bonus(t_list **list)
 		temp = temp -> next;
 	}
 	return (1);
+}
+
+void	ft_is_duplicates(t_list **list)
+{
+	t_list	*temp;
+	t_list	*temp2;
+
+	temp = (*list);
+	while (temp)
+	{
+		temp2 = temp -> next;
+		while (temp2)
+		{
+			if (temp -> number == temp2-> number)
+				ft_list_free_exit(list);
+			temp2 = temp2 -> next;
+		}
+		temp = temp -> next;
+	}
 }

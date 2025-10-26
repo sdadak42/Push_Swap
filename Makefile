@@ -15,12 +15,11 @@ SRCS =	push_swap.c \
 		short_sort.c \
 		move.c \
 		sort_utils.c \
-
-SRC_COMMON = utils.c \
-			split.c \
-			utils_list.c \
-			free_and_exit.c \
-			check_list.c \
+		utils.c \
+		split.c \
+		utils_list.c \
+		free_and_exit.c \
+		check_list.c \
 
 SRC_BONUS = checker_bonus.c \
 			get_next_line_bonus.c \
@@ -30,32 +29,29 @@ SRC_BONUS = checker_bonus.c \
 			move_rotate_bonus.c \
 			move_swap_bonus.c \
 			utils_bonus.c \
+			input_utils_bonus.c \
+			split_bonus.c \
+			utils_list_bonus.c \
+			free_and_exit_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 
-OBJS_COMMON = $(SRC_COMMON:.c=.o)
-
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
-
-HDRS = push_swap.h
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(OBJS_COMMON)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJS_COMMON)
-
-%.o: %.c $(HDRS)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS) $(OBJS_COMMON) $(OBJ_BONUS) 
+	rm -f $(OBJS) $(OBJ_BONUS) 
 
 fclean: clean
 	rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
-bonus: $(OBJ_BONUS) $(OBJS_COMMON)
-	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJ_BONUS) $(OBJS_COMMON)
+bonus: $(OBJ_BONUS)
+	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJ_BONUS)
 
 .PHONY: all clean fclean re bonus
