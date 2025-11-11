@@ -56,9 +56,9 @@ You can run the program by passing a list of integers as arguments. The first ar
 The program will output a list of instructions to sort the stack:
 
 ```text
-sa
 pb
 pb
+rrb
 pb
 sa
 pa
